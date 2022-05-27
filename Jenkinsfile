@@ -4,10 +4,10 @@ node{
     }
     stage('Prerequis'){
         sh apk add ansible sshpass
-        sh echo '192.168.56.102 jenkins.app-salaire.gaoussou.form' > /etc/hosts
+        sh echo "192.168.56.102"
         sh rm -rf /root/.ssh
         sh ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
-        sh sshpass -p 'centos' ssh-copy-id -o stricthostkeychecking=no root@jenkins.app-salaire.gaoussou.form
+        sh sshpass -p 'centos' ssh-copy-id -o stricthostkeychecking=no root@192.168.56.102
     }
     stage('Ansible') {
       ansiblePlaybook (
