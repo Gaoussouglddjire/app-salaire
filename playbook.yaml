@@ -1,0 +1,33 @@
+---
+
+- hosts: 192.168.56.102
+
+  tasks:
+  - name: Installation du serveur Apache et PHP
+    yum:
+     name: "{{ item }}"
+     state: present
+    loop:
+      - httpd
+      - php
+      - nano
+      - mariadb-server
+
+  - name: Démarrage du serveur apache
+    systemd:
+     name: "{{ item }}"
+     state: started
+    loop:
+      - httpd
+      - mariadb
+
+  - name: Copie des fichiers php
+    copy:
+     src: "{{ item }}"
+     dest: /var/www/html/
+    loop:
+     - create_db.php
+     - create_table.php
+     - getting_data.php
+     - insert_data.php
+
