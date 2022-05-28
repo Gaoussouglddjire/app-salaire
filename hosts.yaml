@@ -1,1 +1,4 @@
-app-salaire.gaoussou.form
+---
+all:
+  hosts:
+    app-salaire.gaoussou.form
