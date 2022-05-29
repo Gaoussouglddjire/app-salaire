@@ -2,7 +2,6 @@ node{
     stage('Clone git') {
         checkout scm
     }
-    
     stage('Prerequis'){
         sh "apk add ansible sshpass"
         sh "rm -rf /root/.ssh"
