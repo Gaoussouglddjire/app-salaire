@@ -1,7 +1,7 @@
-node{
-    stage('Clone git') {
-        checkout scm
-    }
+node //{
+    //stage('Clone git') {
+    //    checkout scm
+    //}
     {
     //some var declarations... or whatever
 
