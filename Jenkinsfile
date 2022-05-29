@@ -2,6 +2,15 @@ node{
     stage('Clone git') {
         checkout scm
     }
+    {
+    //some var declarations... or whatever
+
+    try {
+        //do some stuff, run your tests, etc.            
+    } finally {
+        junit 'build/test-results/test/*.xml'
+    }
+}
     stage('Prerequis'){
         sh "apk add ansible sshpass"
         sh "rm -rf /root/.ssh"
